@@ -319,15 +319,14 @@ async def remind_at(content: str, hour: int, minute: int = 0) -> str:
 #               启动
 # ═══════════════════════════════════════
 
-if __name__ == "__main__":  
-    import uvicorn  
-      
-    port = int(os.environ.get("PORT", 8080))  
-      
-    uvicorn.run(  
-        mcp.app,  
-        host="0.0.0.0",  
-        port=port,  
-        log_level="info"  
+if __name__ == "__main__":    
+    import uvicorn    
+        
+    port = int(os.environ.get("PORT", 8080))    
+        
+    uvicorn.run(    
+        mcp.asgi(),    
+        host="0.0.0.0",    
+        port=port,    
+        log_level="info"    
     )  
-
