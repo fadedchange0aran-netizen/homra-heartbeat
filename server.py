@@ -320,4 +320,4 @@ async def remind_at(content: str, hour: int, minute: int = 0) -> str:
 # ═══════════════════════════════════════
 
 if __name__ == "__main__":
-    mcp.run(transport="sse", host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
+    mcp.run(transport="sse")
