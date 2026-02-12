@@ -5,4 +5,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY server.py .
 
 # 把 --host 和 --port 参数写死，不再依赖环境变量，避免一切不确定性！
-CMD ["uvicorn", "server:mcp.app", "--host", "0.0.0.0", "--port", "8080"]
+FROM python:3.11-slim  
+WORKDIR /app  
+COPY requirements.txt .  
+RUN pip install --no-cache-dir -r requirements.txt  
+COPY server.py .  
+CMD ["python", "-m", "uvicorn", "server:mcp.app", "--host", "0.0.0.0", "--port", "8080"]  
